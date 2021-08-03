@@ -13,6 +13,7 @@ ADD https://github.com/YoloDev/enet-mqtt/releases/download/v${ENET_MQTT_VERSION}
 FROM builder-${BUILD_ARCH}
 RUN apt-get update \
   && apt-get install -y --no-install-recommends pwgen \
+  && apt-get clean -y \
   && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
