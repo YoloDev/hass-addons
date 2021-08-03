@@ -1,11 +1,12 @@
 {
   "name": "eNet",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "slug": "enet",
   "description": "Control a eNet network with Home Assistant",
   "arch": ["amd64", "aarch64"],
   "url": "https://github.com/YoloDev/enet-mqtt",
   "stage": "experimental",
+  "startup": "services",
   "services": ["mqtt:need"],
   "discovery": ["mqtt"],
   "options": {

@@ -1,6 +1,6 @@
 #!/usr/bin/with-contenv bashio
 # ==============================================================================
-# Start OpenZWave service for zwave radio
+# Start enet service
 # ==============================================================================
 
 ENET_GATEWAY=$(bashio::config 'gateway')
