@@ -1,6 +1,6 @@
 ARG BUILD_FROM
 ARG BUILD_ARCH
-ARG ENET_MQTT_VERSION
+ARG ENET_MQTT_VERSION=0.1.5
 
 FROM ${BUILD_FROM} as builder-amd64
 ADD https://github.com/YoloDev/enet-mqtt/releases/download/v${ENET_MQTT_VERSION}/enet-mqtt-x86_64 /usr/bin/enet-mqtt
