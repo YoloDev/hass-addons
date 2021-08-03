@@ -13,7 +13,7 @@ bashio::net.wait_for 1883
 export ENET_MQTT_PASS="${MQTT_PASSWORD}"
 
 # Run daemon
-exec enet-mqtt \
+exec /usr/bin/enet-mqtt \
   --gateway "${ENET_GATEWAY}" \
   --mqtt-host 127.0.0.1 \
   --mqtt-port 1883 \
