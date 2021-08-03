@@ -60,6 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     if: needs.init.outputs.changed == 'true'
     name: Build ${{ matrix.arch }} ${{ matrix.addon }} add-on
+    environment: docker-hub
     strategy:
       matrix:
         addon: ${{ fromJson(needs.init.outputs.changed_addons) }}
@@ -94,12 +95,12 @@ jobs:
               echo "BUILD_ARGS=--docker-hub-check" >> $GITHUB_ENV;
           fi
 
-      # - name: Login to DockerHub
-      #   if: env.BUILD_ARGS == '--docker-hub-check'
-      #   uses: docker/login-action@v1.10.0
-      #   with:
-      #     username: ${{ secrets.DOCKERHUB_USERNAME }}
-      #     password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Login to DockerHub
+        if: env.BUILD_ARGS == '--docker-hub-check'
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       # - name: Login to GitHub Container Registry
       #   if: env.BUILD_ARGS == '--docker-hub-check'
