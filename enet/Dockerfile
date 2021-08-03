@@ -11,9 +11,9 @@ ARG ENET_MQTT_VERSION
 ADD https://github.com/YoloDev/enet-mqtt/releases/download/v${ENET_MQTT_VERSION}/enet-mqtt-aarch64 /usr/bin/enet-mqtt
 
 FROM builder-${BUILD_ARCH}
-# RUN apt-get update \
-#   && apt-get install -y ca-certificates tzdata \
-#   && rm -rf /var/lib/apt/lists/*
+RUN apt-get update \
+  && apt-get install -y pwgen \
+  && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
 COPY rootfs /
