@@ -1,0 +1,20 @@
+#!/usr/bin/with-contenv bashio
+# ==============================================================================
+# Start OpenZWave service for zwave radio
+# ==============================================================================
+
+ENET_GATEWAY=$(bashio::config 'gateway')
+MQTT_PASSWORD="$(bashio::jq /data/auth.json '.enet_password')"
+
+# Wait until mosqitto is up and running
+bashio::log.info "Starting enet-mqtt..."
+bashio::net.wait_for 1883
+
+export ENET_MQTT_PASS="${MQTT_PASSWORD}"
+
+# Run daemon
+exec enet-mqtt \
+  --gateway "${ENET_GATEWAY}" \
+  --mqtt-host 127.0.0.1 \
+  --mqtt-port 1883 \
+  --mqtt-user "enet"
