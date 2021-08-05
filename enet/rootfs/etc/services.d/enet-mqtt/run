@@ -12,13 +12,14 @@ bashio::log.info "enet/run 2..."
 
 # Wait until mosqitto is up and running
 bashio::log.info "Starting enet-mqtt..."
+bashio::log.info "enet/run 3..."
 bashio::net.wait_for 1883
 
-bashio::log.info "enet/run 3..."
+bashio::log.info "enet/run 4..."
 export ENET_MQTT_PASS="${MQTT_PASSWORD}"
 
 # Run daemon
-bashio::log.info "enet/run 4..."
+bashio::log.info "enet/run 5..."
 exec /usr/bin/enet-mqtt \
   --gateway "${ENET_GATEWAY}" \
   --mqtt-host 127.0.0.1 \
