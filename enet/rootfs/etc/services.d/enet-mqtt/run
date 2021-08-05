@@ -25,7 +25,7 @@ bashio::log.info "Waiting for mqtt ${host}:${port}..."
 bashio::net.wait_for "${port}" "${host}"
 
 # bashio::log.info "enet/run 4..."
-export ENET_MQTT_PASS="${pass}"
+export ENET_MQTT_PASS="${password}"
 
 # Run daemon
 bashio::log.info "Starting enet-mqtt..."
