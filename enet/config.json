@@ -1,6 +1,6 @@
 {
   "name": "eNet",
-  "version": "0.1.11",
+  "version": "0.1.12",
   "slug": "enet",
   "description": "Control a eNet network with Home Assistant",
   "arch": ["amd64", "aarch64"],
