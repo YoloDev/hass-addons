@@ -3,25 +3,35 @@
 # Start enet service
 # ==============================================================================
 
+declare gateway
+declare host
+declare password
+declare port
+declare username
+
 bashio::log.info "enet/run..."
 
-ENET_GATEWAY=$(bashio::config 'gateway')
-bashio::log.info "enet/run 1..."
-MQTT_PASSWORD="$(bashio::jq /data/auth.json '.enet_password')"
-bashio::log.info "enet/run 2..."
+# Config
+gateway=$(bashio::config 'gateway')
+
+# Services
+host=$(bashio::services "mqtt" "host")
+port=$(bashio::services "mqtt" "port")
+username=$(bashio::services "mqtt" "username")
+password=$(bashio::services "mqtt" "password")
 
 # Wait until mosqitto is up and running
-bashio::log.info "Starting enet-mqtt..."
-bashio::log.info "enet/run 3..."
-bashio::net.wait_for 1883
+bashio::log.info "Waiting for mqtt ${host}:${port}..."
+bashio::net.wait_for "${port}" "${host}"
 
-bashio::log.info "enet/run 4..."
-export ENET_MQTT_PASS="${MQTT_PASSWORD}"
+# bashio::log.info "enet/run 4..."
+export ENET_MQTT_PASS="${pass}"
 
 # Run daemon
+bashio::log.info "Starting enet-mqtt..."
 bashio::log.info "enet/run 5..."
 exec /usr/bin/enet-mqtt \
-  --gateway "${ENET_GATEWAY}" \
-  --mqtt-host 127.0.0.1 \
-  --mqtt-port 1883 \
-  --mqtt-user "enet"
+  --gateway "${gateway}" \
+  --mqtt-host "${host}" \
+  --mqtt-port "${port}" \
+  --mqtt-user "${username}"
