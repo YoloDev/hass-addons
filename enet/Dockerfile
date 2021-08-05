@@ -3,7 +3,6 @@ ARG BUILD_ARCH
 ARG ENET_MQTT_VERSION
 
 FROM ${BUILD_FROM} as builder
-CMD []
 
 RUN apt-get update \
   && apt-get install -y --no-install-recommends pwgen \
@@ -23,6 +22,7 @@ RUN chmod +x /usr/bin/enet-mqtt
 
 WORKDIR /
 COPY rootfs /
+CMD []
 
 # Build arguments
 ARG BUILD_ARCH
