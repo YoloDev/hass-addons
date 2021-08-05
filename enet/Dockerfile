@@ -18,6 +18,7 @@ RUN apt-get update \
 
 WORKDIR /
 COPY rootfs /
+CMD []
 
 # Build arguments
 ARG BUILD_ARCH
