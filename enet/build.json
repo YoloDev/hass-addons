@@ -4,6 +4,6 @@
     "aarch64": "homeassistant/aarch64-base-ubuntu:18.04"
   },
   "args": {
-    "ENET_MQTT_VERSION": "0.1.8"
+    "ENET_MQTT_VERSION": "0.1.9"
   }
 }

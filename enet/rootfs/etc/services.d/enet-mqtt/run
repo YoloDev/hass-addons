@@ -20,6 +20,11 @@ port=$(bashio::services "mqtt" "port")
 username=$(bashio::services "mqtt" "username")
 password=$(bashio::services "mqtt" "password")
 
+bashio::log.info "host: ${host}"
+bashio::log.info "port: ${port}"
+bashio::log.info "username: ${username}"
+bashio::log.info "password: ${password}"
+
 # Wait until mosqitto is up and running
 bashio::log.info "Waiting for mqtt ${host}:${port}..."
 bashio::net.wait_for "${port}" "${host}"
