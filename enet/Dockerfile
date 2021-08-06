@@ -22,6 +22,7 @@ RUN chmod +x /usr/bin/enet-mqtt
 
 WORKDIR /
 COPY rootfs /
+ENTRYPOINT ["/init"]
 CMD []
 
 # Build arguments
