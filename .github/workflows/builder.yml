@@ -15,7 +15,7 @@ jobs:
       changed: ${{ steps.changed_addons.outputs.changed }}
     steps:
       - name: Check out the repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
 
       - name: Get changed files
         id: changed_files
@@ -68,11 +68,11 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
 
       - name: Get information
         id: info
-        uses: home-assistant/actions/helpers/info@master
+        uses: home-assistant/actions/helpers/info@e3fb68ebda13d88a0d695082f471ba2c83d025fb # master
         with:
           path: "./${{ matrix.addon }}"
 
@@ -97,7 +97,7 @@ jobs:
 
       - name: Login to DockerHub
         if: env.BUILD_ARGS == '--docker-hub-check'
-        uses: docker/login-action@v1
+        uses: docker/login-action@dd4fa0671be5250ee6f50aedf4cb05514abda2c7 # v1.14.1
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
@@ -112,7 +112,7 @@ jobs:
 
       - name: Build ${{ matrix.addon }} add-on
         if: steps.check.outputs.build_arch == 'true'
-        uses: home-assistant/builder@2021.11.3
+        uses: home-assistant/builder@f27b10e8faef09ffc5f8ad198fd96caf7e2fc298 # 2021.11.3
         with:
           args: |
             ${{ env.BUILD_ARGS }} \
