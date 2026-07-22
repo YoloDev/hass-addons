@@ -11,7 +11,7 @@ jobs:
     name: hadolint
     steps:
       - name: ⏬ Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
 
       - name: ✔️ Run linter
         id: changed_files
@@ -30,7 +30,7 @@ jobs:
     name: JQ
     steps:
       - name: ⏬ Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
 
       - name: ✔️ Run linter
         run: |
@@ -43,7 +43,7 @@ jobs:
     name: ShellCheck
     steps:
       - name: ⏬ Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@a37ce9120846195fa4ece8f58b268e6043cb2f26 # v3.7.0
 
       - name: ✔️ Run linter
-        uses: ludeeus/action-shellcheck@1.1.0
+        uses: ludeeus/action-shellcheck@94e0aab03ca135d11a35e5bfc14e6746dc56e7e9 # 1.1.0
