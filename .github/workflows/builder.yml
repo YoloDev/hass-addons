@@ -97,7 +97,7 @@ jobs:
 
       - name: Login to DockerHub
         if: env.BUILD_ARGS == '--docker-hub-check'
-        uses: docker/login-action@dd4fa0671be5250ee6f50aedf4cb05514abda2c7 # v1.14.1
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
