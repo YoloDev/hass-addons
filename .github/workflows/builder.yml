@@ -72,7 +72,7 @@ jobs:
 
       - name: Get information
         id: info
-        uses: home-assistant/actions/helpers/info@e3fb68ebda13d88a0d695082f471ba2c83d025fb # master
+        uses: home-assistant/actions/helpers/info@9e9565e68f5a70d874202871f4c4064d23814235 # master
         with:
           path: "./${{ matrix.addon }}"
 
